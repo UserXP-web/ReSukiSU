@@ -1,13 +1,13 @@
-# SukiSU Ultra
+# ReSukiSU
 <img align='right' src='SukiSU-mini.svg' width='220px' alt="sukisu logo">
 
 
 [English](../README.md) | **简体中文** | [日本語](../ja/README.md) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md)
 
-一个 Android 上基于内核的 root 方案，由 [`tiann/KernelSU`](https://github.com/tiann/KernelSU) 分叉而来，添加了一些有趣的变更。
+一个 [`SukiSU-Ultra/SukiSU-Ultra`](https://github.com/SukiSU-Ultra/SukiSU-Ultra) 的下游分支，由 [`tiann/KernelSU`](https://github.com/tiann/KernelSU) 分叉而来，添加了一些有趣的变更。
 
-[![最新发行](https://img.shields.io/github/v/release/SukiSU-Ultra/SukiSU-Ultra?label=Release&logo=github)](https://github.com/tiann/KernelSU/releases/latest)
-[![频道](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/Sukiksu)
+[![最新发行](https://img.shields.io/github/v/release/ReSukiSU/ReSukiSU?label=Release&logo=github)](https://github.com/ReSukiSU/ReSukiSU/releases/latest)
+[![频道](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/ReSukiSU)
 [![协议: GPL v2](https://img.shields.io/badge/License-GPL%20v2-orange.svg?logo=gnu)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 [![GitHub 协议](https://img.shields.io/github/license/tiann/KernelSU?logo=gnu)](/LICENSE)
 
@@ -15,6 +15,7 @@
 
 1. 基于内核的 `su` 和权限管理。
 2. 基于 [Magic Mount](https://github.com/5ec1cff/KernelSU) 的模块系统。
+   > **注意：** 模块挂载已由元模块接管，不再支持
 3. [App Profile](https://kernelsu.org/zh_CN/guide/app-profile.html): 把 Root 权限关进笼子里。
 4. 支持 non-GKI 与 GKI 1.0。
 5. KPM 支持
@@ -22,25 +23,23 @@
 
 ## 兼容状态
 
-- KernelSU 官方支持 GKI 2.0 的设备（内核版本 5.10 以上）。
+- ReSukiSU 官方支持 GKI 2.0 的设备（内核版本 5.10 以上）。
 
 - 旧内核也是兼容的（最低 4.14+），不过需要自己编译内核。
 
-- 通过更多的反向移植，KernelSU 可以支持 3.x 内核（3.4-3.18）。
+- 通过更多的反向移植，ReSukiSU 可以支持 3.x 内核（3.4-3.18）。
 
 - 目前支持架构 : `arm64-v8a`、`armeabi-v7a (bare)`、`X86_64`。
 
-## 安装指导
+## 集成
 
-查看 [`guide/installation.md`](guide/installation.md)
-
-## 集成指导
-
-查看 [`guide/how-to-integrate.md`](guide/how-to-integrate.md)
+```sh
+curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash -s builtin
+```
 
 ## 参与翻译
 
-要将 SukiSU 翻译成您的语言，或完善现有的翻译，请使用 [Crowdin](https://crowdin.com/project/SukiSU-Ultra).
+要将 SukiSU 翻译成您的语言，或完善现有的翻译，请使用 [Crowdin](https://crowdin.com/project/ReSukiSU).
 
 ## KPM 支持
 
@@ -57,11 +56,6 @@
 > 2. Non-GKI 设备需要 `CONFIG_KALLSYMS=y` and `CONFIG_KALLSYMS_ALL=y`
 > 3. 对于低于 `4.19` 的内核，需要从 `4.19` 的 `set_memory.h` 进行反向移植。
 
-## 故障排除
-
-1. 卸载管理器后系统卡住？
-   卸载 _com.sony.playmemories.mobile_
-
 ## 许可证
 
 - 目录 `kernel` 下所有文件为 [GPL-2.0-only](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)。
@@ -73,7 +67,8 @@
 - [ShirkNeko](https://afdian.com/a/shirkneko) (SukiSU 主要维护者)
 - [weishu](https://github.com/sponsors/tiann) (KernelSU 作者)
 
-## ShirkNeko 的赞助列表
+<details>
+<summary>ShirkNeko 的赞助列表</summary>
 
 - [Ktouls](https://github.com/Ktouls) 非常感谢你给我带来的支持
 - [zaoqi123](https://github.com/zaoqi123) 请我喝奶茶也不错
@@ -82,14 +77,21 @@
 - [DARKWWEE](https://github.com/DARKWWEE) 感谢老哥的 100 USDT
 - [Saksham Singla](https://github.com/TypeFlu) 网站的提供以及维护
 - [OukaroMF](https://github.com/OukaroMF) 网站域名捐赠
+</details>
 
 ## 鸣谢
+
+- [SukiSU-Ultra/SukiSU-Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra)：上游
+
+<details>
+<summary>SukiSU 的鸣谢</summary>
 
 - [KernelSU](https://github.com/tiann/KernelSU): 上游
 - [MKSU](https://github.com/5ec1cff/KernelSU): 魔法坐骑支持
 - [RKSU](https://github.com/rsuntk/KernelsU): non-GKI 支持
 - [susfs](https://gitlab.com/simonpunk/susfs4ksu): 隐藏内核补丁以及用户空间模组的 KernelSU 附件
 - [KernelPatch](https://github.com/bmax121/KernelPatch): KernelPatch 是内核模块 APatch 实现的关键部分
+</details>
 
 <details>
 <summary>KernelSU 的鸣谢</summary>

@@ -1,13 +1,13 @@
-# SukiSU Ultra
+# ReSukiSU
 <img align='right' src='SukiSU-mini.svg' width='220px' alt="sukisu logo">
 
 
-**English** | [简体中文](./zh/README.md) | [日本語](./ja/README.md) | [Türkçe](./tr/README.md) | [Русский](./ru/README.md)
+**English** | [简体中文](./zh/README.md)
 
-A kernel-based root solution for Android devices, forked from [`tiann/KernelSU`](https://github.com/tiann/KernelSU), and added some interesting changes.
+A based-on [`SukiSU-Ultra/SukiSU-Ultra`](https://github.com/SukiSU-Ultra/SukiSU-Ultra) fork, forked from [`tiann/KernelSU`](https://github.com/tiann/KernelSU), and added some interesting changes.
 
-[![Latest release](https://img.shields.io/github/v/release/SukiSU-Ultra/SukiSU-Ultra?label=Release&logo=github)](https://github.com/tiann/KernelSU/releases/latest)
-[![Channel](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/Sukiksu)
+[![Latest release](https://img.shields.io/github/v/release/ReSukiSU/ReSukiSU?label=Release&logo=github)](https://github.com/ReSukiSU/ReSukiSU/releases/latest)
+[![Channel](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/ReSukisu)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-orange.svg?logo=gnu)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 [![GitHub License](https://img.shields.io/github/license/tiann/KernelSU?logo=gnu)](/LICENSE)
 
@@ -15,7 +15,7 @@ A kernel-based root solution for Android devices, forked from [`tiann/KernelSU`]
 
 1. Kernel-based `su` and root access management
 2. Module system based on [Magic Mount](https://github.com/5ec1cff/KernelSU)
-   > **Note:** SukiSU now delegates all module mounting to the installed *metamodule*; the core no longer handles mount operations.
+   > **Note:** ReSukiSU now delegates all module mounting to the installed *metamodule*; the core no longer handles mount operations.
 3. [App Profile](https://kernelsu.org/guide/app-profile.html): Lock up the root power in a cage
 4. Support non-GKI and GKI 1.0
 5. KPM Support
@@ -23,7 +23,7 @@ A kernel-based root solution for Android devices, forked from [`tiann/KernelSU`]
 
 ## Compatibility Status
 
-- SukiSU officially supports Android GKI 2.0 devices (kernel 5.10+).
+- ReSukiSU officially supports Android GKI 2.0 devices (kernel 5.10+).
 
 - Older kernels (4.4+) are also compatible, but the kernel will have to be built manually.
 
@@ -31,17 +31,15 @@ A kernel-based root solution for Android devices, forked from [`tiann/KernelSU`]
 
 - Currently, only `arm64-v8a`, `armeabi-v7a (bare)` and `X86_64`(some) are supported.
 
-## Installation
-
-See [`guide/installation.md`](guide/installation.md)
-
 ## Integration
 
-See [`guide/how-to-integrate.md`](guide/how-to-integrate.md)
+```sh
+curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash -s builtin
+```
 
 ## Translation
 
-If you need to submit a translation for the manager, please go to [Crowdin](https://crowdin.com/project/SukiSU-Ultra).
+If you need to submit a translation for the manager, please go to [Crowdin](https://crowdin.com/project/ReSukiSU).
 
 ## KPM Support
 
@@ -58,17 +56,13 @@ If you need to submit a translation for the manager, please go to [Crowdin](http
 > 2. Non-GKI devices requires `CONFIG_KALLSYMS=y` and `CONFIG_KALLSYMS_ALL=y`
 > 3. For kernels below `4.19`, backporting from `set_memory.h` from `4.19` is required.
 
-## Troubleshooting
-
-1. Device stuck upon manager app uninstallation?
-   Uninstall _com.sony.playmemories.mobile_
-
 ## Sponsor
 
 - [ShirkNeko](https://afdian.com/a/shirkneko) (maintainer of SukiSU)
 - [weishu](https://github.com/sponsors/tiann) (author of KernelSU)
 
-## ShirkNeko's sponsorship list
+<details>
+<summary>ShirkNeko's sponsorship list</summary>
 
 - [Ktouls](https://github.com/Ktouls) Thanks so much for bringing me support.
 - [zaoqi123](https://github.com/zaoqi123) Thanks for the milk tea.
@@ -77,6 +71,7 @@ If you need to submit a translation for the manager, please go to [Crowdin](http
 - [DARKWWEE](https://github.com/DARKWWEE) 100 USDT
 - [Saksham Singla](https://github.com/TypeFlu) Provide and maintain the website
 - [OukaroMF](https://github.com/OukaroMF) Donation of website domain name
+</details>
 
 ## License
 
@@ -86,11 +81,17 @@ If you need to submit a translation for the manager, please go to [Crowdin](http
 
 ## Credit
 
+- [SukiSU-Ultra/SukiSU-Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra)： upstream
+
+<details>
+<summary>SukiSU's credit</summary>
+
 - [KernelSU](https://github.com/tiann/KernelSU): upstream
 - [MKSU](https://github.com/5ec1cff/KernelSU): Magic Mount
 - [RKSU](https://github.com/rsuntk/KernelsU): support non-GKI
 - [susfs](https://gitlab.com/simonpunk/susfs4ksu): An addon root hiding kernel patches and userspace module for KernelSU.
 - [KernelPatch](https://github.com/bmax121/KernelPatch): KernelPatch is a key part of the APatch implementation of the kernel module
+</details>
 
 <details>
 <summary>KernelSU's credit</summary>
